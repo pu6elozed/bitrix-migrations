@@ -56,9 +56,9 @@ abstract class AbstractCommand extends Command
         } catch (Exception $e) {
             $this->error($e->getMessage());
             $this->error('Abort!');
-        }
 
-        return;
+            return $e->getCode();
+        }
     }
 
     /**
