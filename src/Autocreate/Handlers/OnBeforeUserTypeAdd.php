@@ -41,6 +41,10 @@ class OnBeforeUserTypeAdd extends BaseHandler implements HandlerInterface
      */
     public function getReplace()
     {
+        $setings = @unserialize($this->fields['SETTINGS']);
+        if($setings){
+            $this->fields['SETTINGS'] = $setings;
+        }
         return [
             'fields' => var_export($this->fields, true),
             'code'   => "'".$this->fields['FIELD_NAME']."'",
